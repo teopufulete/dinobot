@@ -17,7 +17,7 @@ public class TRexBot {
 	private WebElement window;
 	private Boolean firstJump;
 	
-    private static final int DEFAULT_DISTANCE = 185;
+    private static final int DEFAULT_DISTANCE = 0;
     private static final int FLYING_OBSTACLE_WIDTH = 46;
     private static final int TREX_HEIGHT = 51;
 
