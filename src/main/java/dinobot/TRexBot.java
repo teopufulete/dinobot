@@ -1,20 +1,14 @@
 package dinobot;
 
-import com.google.common.collect.ImmutableMap;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.Command;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 public class TRexBot {
@@ -74,11 +68,11 @@ public class TRexBot {
     
     
     private Boolean isObstaclePresent() {
-        Map<String, Long> obstacle = (Map<String, Long>) executeScript("return Runner.instance_.horizon.obstacles.(o => (o.xPos > 25))[0] || {}");
+        Map<String, Long> obstacle = (Map<String, Long>) executeScript("return Runner.instance_.horizon.obstacles.filter(o => (o.xPos > 25))[0] || {}");
         Long tRexPos = (Long) executeScript("return Runner.instance_.tRex.xPos");
         Double currentSpeed = (Double) executeScript("return Runner.instance_.currentSpeed");
 
-        Long distanceToStartJump = firstJump ? new Long(DEFAULT_DISTANCE+ 40) : new Long(DEFAULT_DISTANCE);
+        Long distanceToStartJump = firstJump ? new Long(DEFAULT_DISTANCE + 180) : new Long(DEFAULT_DISTANCE + 100);
 
         //dynamically calculate the distance difference to 
         if(currentSpeed >= 10) {
@@ -91,22 +85,18 @@ public class TRexBot {
         }
 
         // Check if obstacle is present 
-        if(obstacle!=null && obstacle.containsKey("Runner.instance_.horizon.obstacles.xPos")) {
-
-            /* If the obstacle is flying, we need to jump only if the height of Trex >= vertical position of the obstacle */
-            if(obstacle.get("width") == FLYING_OBSTACLE_WIDTH && obstacle.get("yPos") < TREX_HEIGHT) {
-                return false;
-            }
-
-            Long currentDistance = obstacle.get("xPos") - tRexPos;
-
-            if(obstacle.get("xPos") > tRexPos && currentDistance <= distanceToStartJump) {
-                if(firstJump) {
-                	firstJump = false;
-                }
-                System.out.println("Identified Obstacle at "+ currentDistance);
-                return true;
-            }
+        if (obstacle != null && obstacle.containsKey("xPos")) {
+        	
+       	 	Long currentDistanceToObstacle = obstacle.get("xPos") - tRexPos;
+        	
+       	 	if (obstacle.get("xPos") > tRexPos && currentDistanceToObstacle <= distanceToStartJump) {
+       	 		if (firstJump) {
+       	 			firstJump = false;
+       	 		}
+       	 		
+       	 		System.out.println("Identified Obstacle at "+ currentDistanceToObstacle);
+       	 		return true;
+       	 	}
         }
         return false;
     }
