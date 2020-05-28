@@ -1,5 +1,5 @@
 # dinobot
 
-Maven Project to emulate browser and automate playing Google Chrome dino game using Selenium.
+Maven Project to emulate browser using Selenium and automate playing Google Chrome dino game.
 
-Genetic Algorithms to train RL Agent on Discrete action space
+To do: Further improvements by implementing Genetic Algorithms to train RL Agent on Discrete action space
