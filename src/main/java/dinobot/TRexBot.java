@@ -86,6 +86,12 @@ public class TRexBot {
 
         // Check if obstacle is present 
         if (obstacle != null && obstacle.containsKey("xPos")) {
+		
+		//If obstacle is flying, jump only if dino height >= vertical position of the obstacle 
+       	 	if (obstacle.get("width") == FLYING_OBSTACLE_WIDTH && obstacle.get("yPos") < TREX_HEIGHT) {
+       	 		return false;
+       	 	}
+       	 	
         	
        	 	Long currentDistanceToObstacle = obstacle.get("xPos") - tRexPos;
         	
