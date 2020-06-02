@@ -34,5 +34,14 @@ public class Layer {
 	private float sigmoidActivation(float weightedSum) {
 		return (float) (1/ (1) + Math.exp(-weightedSum));
 	}
+	
+	
+	public float[] getOutput() {
+		float[] output = new float[this.neurons.size()];
+		for (int i = 0; i < this.neurons.size(); i++) {
+			output [i] = this.neurons.get(i).value;
+		}
+		return output;
+	}
 }
   
