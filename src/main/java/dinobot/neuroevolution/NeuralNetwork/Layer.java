@@ -18,6 +18,16 @@ public class Layer {
 		}
 	}
   
-  //TO DO: eval, activation, output funtions
+  //TO DO:activation, output funtions
+	public void evaluate(Layer prevLayer) {
+		for (Neuron neuron: this.neurons) {
+			float weightedSum = 0.0f;
+			for (int i = 0; i < prevLayer.neurons.size(); i++) {
+				Neuron prevNeuron = prevLayer.neurons.get(i);
+				weightedSum += prevNeuron.value * neuron.weights.get(i);
+			}
+			neuron.value = this.sigmoidActivation(weightedSum);
+		}
+	}
 }
   
