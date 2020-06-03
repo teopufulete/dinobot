@@ -49,4 +49,25 @@ public class NeuralNetwork {
 		}
 		return net;
 	}
+	
+	
+	public static NeuralNetwork expand(FlattenNet net) {
+		NeuralNetwork nn = new NeuralNetwork();
+		int prevInput = 0;
+		int weightIndex = 0;
+		
+		for (int neuronCount: net.neurons) {
+			Layer layer = new Layer(neuronCount, prevInput);
+			
+			for (int i = 0; i < layer.neurons.size(); i++) {
+				
+				for (int j = 0; j < layer.neurons.get(i).weights.size(); j++) {
+					layer.neurons.get(i).weights.set(j, net.weights.get(weightIndex++));
+				}
+			}
+			prevInput = neuronCount;
+			nn.layers.add(layer);
+		}
+		return nn;
+	}
 }
