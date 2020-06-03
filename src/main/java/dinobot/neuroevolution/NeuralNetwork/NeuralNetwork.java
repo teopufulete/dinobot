@@ -32,4 +32,21 @@ public class NeuralNetwork {
 			prevInputs = dimensions[i];
 		}
 	}
+	
+	
+	public FlattenNet flatten() {
+		FlattenNet net = new FlattenNet();
+		
+		for (Layer layer: this.layers) {
+			net.neurons.add(layer.neurons.size());
+			
+			for (Neuron neuron: layer.neurons) {
+				
+				for (float weight: neuron.weights) {
+					net.weights.add(weight);
+				}
+			}
+		}
+		return net;
+	}
 }
