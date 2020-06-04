@@ -70,4 +70,11 @@ public class NeuralNetwork {
 		}
 		return nn;
 	}
+	
+	
+	public float[] evaluate(float... inputs) {
+		for (int i = 0; i < inputs.length; i++) {
+			
+		}
+	}
 }
