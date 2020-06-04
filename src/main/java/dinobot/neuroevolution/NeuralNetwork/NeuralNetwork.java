@@ -2,6 +2,7 @@ package dinobot.neuroevolution.NeuralNetwork;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class NeuralNetwork {
 	
 	
