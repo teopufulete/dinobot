@@ -74,7 +74,15 @@ public class NeuralNetwork {
 	
 	public float[] evaluate(float... inputs) {
 		for (int i = 0; i < inputs.length; i++) {
-			
+			this.layers.get(0).neurons.get(i).value = inputs[i];	
 		}
+		
+		Layer prevLayer = this.layers.get(0);
+		for (int i = 1; i < this.layers.size(); i++) {
+			this.layers.get(i).evaluate(prevLayer);
+			prevLayer = this.layers.get(i);
+		}
+		// prev layer is now the last layer in the network
+				return prevLayer.getOutput();
 	}
 }
