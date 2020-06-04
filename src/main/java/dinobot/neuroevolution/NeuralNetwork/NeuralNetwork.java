@@ -85,4 +85,10 @@ public class NeuralNetwork {
 		// prev layer is now the last layer in the network
 				return prevLayer.getOutput();
 	}
+	
+	
+	public int argmax(float... inputs) {
+		float[] output = this.evaluate(inputs);
+		int maxIndex = 0;
+	}
 }
