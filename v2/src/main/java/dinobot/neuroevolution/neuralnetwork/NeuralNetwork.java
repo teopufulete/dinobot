@@ -1,4 +1,4 @@
-package dinobot.neuroevolution.NeuralNetwork;
+package dinobot.neuroevolution.neuralnetwork;
 import java.util.ArrayList;
 import java.util.List;
 
