@@ -83,8 +83,9 @@ public class NeuralNetwork {
 			this.layers.get(i).evaluate(prevLayer);
 			prevLayer = this.layers.get(i);
 		}
+		
 		// prev layer is now the last layer in the network
-				return prevLayer.getOutput();
+		return prevLayer.getOutput();
 	}
 	
 	
