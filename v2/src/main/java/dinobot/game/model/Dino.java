@@ -82,4 +82,15 @@ public class Dino {
 		this.gravity += this.velocity;
 		this.y = Math.min(this.y + this.gravity, this.groundLevel);
 	}
+	
+	
+	public void feed(Obstacle closestObstacle, float distance) {
+		if (closestObstacle != null && !this.isDead) {
+			if (closestObstacle instanceof CactusObstacle) {
+				this.feed((CactusObstacle) closestObstacle, distance);
+			} else {
+				this.feed((BirdObstacle) closestObstacle, distance);
+			}
+		}
+	}
 }
