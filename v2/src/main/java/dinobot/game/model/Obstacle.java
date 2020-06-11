@@ -39,6 +39,6 @@ public class Obstacle {
 	
 	
 	public boolean isInvisible() {
-
+		return this.x <= -this.width;
 	}
 }
