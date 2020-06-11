@@ -10,10 +10,28 @@ public class BirdObstacle extends Obstacle {
 	private int counter = 5;
 	
 	public BirdObstacle(float x, float y, BirdHeight birdHeight) {
+		super(x, y);
+		this.type = ObstacleType.BIRD;
+		this.birdHeight = birdHeight;
+		this.width = 100;
+		this.height = 60;
+		
+		switch (birdHeight) {
+		case LOW:
+			this.y -= 20;
+			break;
+		case MEDIUM:
+			this.y -= 60;
+			break;
+		case HIGH:
+			this.y -= 170;
+			break;
+		default:
+			break;
+		}
+  	}	
   
-  }
+  	public void update() {
   
-  public void update() {
-  
-  }
+  	}
 }
