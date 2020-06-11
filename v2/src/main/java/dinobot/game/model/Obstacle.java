@@ -23,12 +23,12 @@ public class Obstacle {
 	
 	
 	public static void speedUp() {
-		
+		VELOCITY = Math.max(VELOCITY - 1, MAX_VELOCITY);
 	}
 	
 	
 	public void update() {
-
+		this.x += VELOCITY;
 	}
 	
 	
