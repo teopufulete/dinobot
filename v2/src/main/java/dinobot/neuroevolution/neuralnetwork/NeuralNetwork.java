@@ -92,7 +92,6 @@ public class NeuralNetwork {
 	public int argmax(float... inputs) {
 		float[] output = this.evaluate(inputs);
 		int maxIndex = 0;
-	}
 	
 		for (int i = 0; i < output.length; i++) {
 			if (output[i] > output[maxIndex]) {
