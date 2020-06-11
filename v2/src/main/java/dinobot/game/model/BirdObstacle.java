@@ -32,6 +32,12 @@ public class BirdObstacle extends Obstacle {
   	}	
   
   	public void update() {
-  
+ 		 super.update();
+		this.counter--;
+		
+		if (this.counter <= 0) {
+			this.state ^= 1;
+			this.counter = 5;
+		}
   	}
 }
