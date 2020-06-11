@@ -33,7 +33,8 @@ public class Obstacle {
 	
 	
 	public boolean checkCollisionwDino(Dino dino) {
-	
+		return (this.x < dino.x + dino.width && this.x + this.width > dino.x &&
+				this.y - this.height < dino.y && this.y > dino.y - dino.height);
 	}
 	
 	
