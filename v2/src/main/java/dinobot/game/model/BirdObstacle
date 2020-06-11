@@ -1,0 +1,19 @@
+public class BirdObstacle extends Obstacle {
+	
+	public enum BirdHeight {
+		LOW, MEDIUM, HIGH;
+	}
+	
+	public BirdHeight birdHeight;
+	public int state;
+	
+	private int counter = 5;
+	
+	public BirdObstacle(float x, float y, BirdHeight birdHeight) {
+  
+  }
+  
+  public void update() {
+  
+  }
+}
