@@ -6,11 +6,11 @@ import java.util.List;
 public class NeuralNetwork {
 	
 	
-	public class FlattenNetwork {
+	public class FlattenNet {
 		public List<Integer> neurons;
 		public List<Float> weights;
 		
-		public FlattenNetwork() {
+		public FlattenNet() {
 			this.neurons = new ArrayList<Integer>();
 			this.weights = new ArrayList<Float>();
 		}
