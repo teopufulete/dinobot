@@ -6,7 +6,7 @@ public class CactusObstacle extends Obstacle {
 	
 	public CactusType cactusType;
   
-  public CactusObstacle(float x, float y, CactusType cactusType) {
+  	public CactusObstacle(float x, float y, CactusType cactusType) {
 	  	super(x, y);
 		this.type = ObstacleType.CACTUS;
 		this.cactusType = cactusType;
@@ -25,5 +25,5 @@ public class CactusObstacle extends Obstacle {
 		default:
 			break;
 		}
-  }
+  	}
 }
