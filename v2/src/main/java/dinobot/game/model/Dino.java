@@ -93,4 +93,24 @@ public class Dino {
 			}
 		}
 	}
+	
+	
+	private void feed(CactusObstacle closestObstacle, float distance) {
+		float[] inputs = {
+				distance / Screen.WIDTH,
+				closestObstacle.height / Screen.HEIGHT,
+				closestObstacle.width / Screen.WIDTH,
+				this.y / Screen.HEIGHT,
+				Obstacle.VELOCITY / Obstacle.MAX_VELOCITY
+			};
+		
+		int argmax = this.cactusNN.argmax(inputs);
+		
+		if (argmax == JUMP) {
+			this.jump();
+		} 
+		else {
+			this.standUp();
+		}
+	}
 }
