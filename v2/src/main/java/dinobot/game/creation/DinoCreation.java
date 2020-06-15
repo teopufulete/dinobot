@@ -9,5 +9,11 @@ public class DinoCreation {
 	
 	private DinoCreation() {
 	}
+	
+	
+	public static void init(float x, float y) {
+		spawnX = x;
+		spawnY = y;
+	}
   
 }
