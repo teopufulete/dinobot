@@ -25,4 +25,9 @@ public class DinoCreation {
 	public static Dino getDino(FlattenNet cNet, FlattenNet bNet) {
 		return new Dino(spawnX, spawnY, cNet, bNet);
 	}
+	
+	
+	public static float getSpawnX() {
+		return spawnX;
+	}
 }
