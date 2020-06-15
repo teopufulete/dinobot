@@ -16,4 +16,13 @@ public class DinoCreation {
 		spawnY = y;
 	}
   
+	
+	public static Dino getDino() {
+		return new Dino(spawnX, spawnY);
+	}
+	
+	
+	public static Dino getDino(FlattenNet cNet, FlattenNet bNet) {
+		return new Dino(spawnX, spawnY, cNet, bNet);
+	}
 }
