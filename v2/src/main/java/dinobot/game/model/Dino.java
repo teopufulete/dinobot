@@ -113,4 +113,28 @@ public class Dino {
 			this.standUp();
 		}
 	}
+	
+	
+	private void feed(BirdObstacle closestObstacle, float distance) {
+		float[] inputs = {
+				distance / Screen.WIDTH,
+				closestObstacle.height / Screen.HEIGHT,
+				closestObstacle.width / Screen.WIDTH,
+				closestObstacle.y / Screen.HEIGHT,
+				this.y / Screen.HEIGHT,
+				Obstacle.VELOCITY / Obstacle.MAX_VELOCITY
+			};
+		
+		int argmax = this.cactusNN.argmax(inputs);
+		
+		if (argmax == JUMP) {
+			this.jump();
+		} 
+		else if (argmax == DUCK) {
+			this.duck();
+		} 
+		else if (argmax == DO_NOTHING) {
+			this.standUp();
+		}
+	}
 }
