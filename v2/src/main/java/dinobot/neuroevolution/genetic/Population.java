@@ -37,6 +37,23 @@ public class Population {
 			}
 			nextGeneration.add(new Genotype(cNet, bNet));
 		}
+		
+		// pool selection
+		int max = 0;
+		while (true) {
+			for (int i = 0; i < max; i++) {
+				List<Genotype> children = Genotype.breed(this.genomes.get(i), this.genomes.get(max), childCount, mutationRate, mutationStdDev);
+				for (Genotype child: children) {
+					nextGeneration.add(child);
+					if (nextGeneration.size() >= this.genomes.size()) {
+						this.genomes = nextGeneration;
+						return;
+					}
+				}
+			}
+			max++;
+			max = max >= this.genomes.size()-1 ? 0 : max;
+		}
 	}
 	
 	
