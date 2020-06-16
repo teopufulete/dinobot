@@ -8,6 +8,10 @@ public class Population {
 	
 	
 	public Population(int populationSize) {
+		this.genomes = new ArrayList<Genotype>();
+		for (int i = 0; i < populationSize; i++) {
+			this.genomes.add(new Genotype());
+		}
 	}
 
 	
