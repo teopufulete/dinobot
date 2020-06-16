@@ -10,4 +10,9 @@ public class BirdCreation {
 	
 	private BirdCreation() {	
 	}
+	
+	public static void init(float x, float y) {
+		spawnX = x;
+		spawnY = y;
+	}
 }
