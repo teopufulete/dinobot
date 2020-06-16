@@ -15,4 +15,8 @@ public class BirdCreation {
 		spawnX = x;
 		spawnY = y;
 	}
+	
+	public static Obstacle getBird() {
+		return new BirdObstacle(spawnX, spawnY, types[(int) Math.round(Math.random()*(types.length-1))]);
+	}
 }
