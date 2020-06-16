@@ -15,4 +15,8 @@ public class CactusCreation {
 		spawnX = x;
 		spawnY = y;
 	}
+	
+	public static Obstacle getCactus() {
+		return new CactusObstacle(spawnX, spawnY, types[(int) Math.round(Math.random()*(types.length-1))]);
+	}
 }
