@@ -58,6 +58,13 @@ public class Population {
 	
 	
 	private void normalFitnessDistribution() {
+		float sum = 0f;
+		for (Genotype genome: this.genomes) {
+			sum += genome.dino.score;
+		}
+		for (Genotype genome: this.genomes) {
+			genome.fitness = genome.dino.score / sum;
+		}
 	}
 	
 
