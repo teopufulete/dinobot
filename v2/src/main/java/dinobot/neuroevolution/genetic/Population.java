@@ -68,6 +68,21 @@ public class Population {
 	}
 	
 
+	// to do : implement quick sort 
 	private void sortByFitness() {
+		for (int i = 0; i < this.genomes.size()-1; i++) {
+			int bestIndex = i;
+			for (int j = i+1; j < this.genomes.size(); j++) {
+				if (this.genomes.get(j).fitness > this.genomes.get(bestIndex).fitness) {
+					bestIndex = j;
+				}
+			}
+			if (bestIndex != i) {
+				Genotype temp = this.genomes.get(bestIndex);
+				this.genomes.set(bestIndex, this.genomes.get(i));
+				this.genomes.set(i, temp);
+			}
+		}
+	}
 	}
 }
