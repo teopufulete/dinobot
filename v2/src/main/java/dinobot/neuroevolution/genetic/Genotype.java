@@ -14,4 +14,9 @@ public class Genotype {
 		this.dino = DinoCreation.getDino();
 		this.fitness = 0;
 	}
+	
+	public Genotype(FlattenNet cNet, FlattenNet bNet) {
+		this.dino = DinoCreation.getDino(cNet, bNet);
+		this.fitness = 0;
+	}
 }
