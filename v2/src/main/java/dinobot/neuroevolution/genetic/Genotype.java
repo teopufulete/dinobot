@@ -43,4 +43,20 @@ public class Genotype {
 		}
 		return children;
 	}
+	
+	
+	private static FlattenNet breedNeuralNetworks(FlattenNet childNet, FlattenNet parentNet, float mutationRate, float mutationStdDev) {
+		for (int i = 0; i < childNet.weights.size(); i++) {
+			if (Math.random() <= 0.5) {
+				childNet.weights.set(i, parentNet.weights.get(i));
+			}
+		}
+		
+		for (int i = 0; i < childNet.weights.size(); i++) {
+			if (Math.random() <= mutationRate) {
+				childNet.weights.set(i, (float) Math.random()*2*mutationStdDev - mutationStdDev);
+			}
+		}
+		return childNet;
+	}
 }
