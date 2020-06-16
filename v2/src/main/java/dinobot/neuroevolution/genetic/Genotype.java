@@ -10,13 +10,21 @@ public class Genotype {
 	public Dino dino;
 	public float fitness;
 	
+	
 	public Genotype() {
 		this.dino = DinoCreation.getDino();
 		this.fitness = 0;
 	}
 	
+	
 	public Genotype(FlattenNet cNet, FlattenNet bNet) {
 		this.dino = DinoCreation.getDino(cNet, bNet);
+		this.fitness = 0;
+	}
+	
+	
+	public Genotype(Genotype genome) {
+		this.dino = DinoCreation.getDino(genome.dino.cactusNN.flatten(), genome.dino.birdNN.flatten());
 		this.fitness = 0;
 	}
 }
