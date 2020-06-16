@@ -4,10 +4,15 @@ import game.model.Obstacle;
 import game.model.CactusObstacle.CactusType;
 
 public class CactusCreation {
-  private static float spawnX;
+  	private static float spawnX;
 	private static float spawnY;
-	private static BirdHeight[] types = BirdHeight.values();
+	private static CactusType[] types = CactusType.values();
 	
-	private BirdCreation() {	
+	private CactusCreation() {
+	}
+	
+	public static void init(float x, float y) {
+		spawnX = x;
+		spawnY = y;
 	}
 }
