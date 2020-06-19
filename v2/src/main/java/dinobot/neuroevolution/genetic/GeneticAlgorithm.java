@@ -15,6 +15,19 @@ public class GeneticAlgorithm {
 		}
 	}
 	
+	public Population population;
+	public int alive;
+	public int generation;
+	
+	public int populationSize = 100;
+	public float elitism = 0.2f;
+	public float mutationRate = 0.1f;
+	public float mutationStdDev = 0.5f;
+	public float randomness = 0.2f;
+	public int childCount = 1;
+	
+	private Dino bestGenome;
+	
 	public GeneticAlgorithm() {
 	}
 	
