@@ -76,6 +76,16 @@ public class GeneticAlgorithm {
 	}
 	
 	private ObstacleInfo getClosestObstacle(List<Obstacle> obstacles) {
+		Obstacle closestObstacle = null;
+		float distance = Float.MAX_VALUE;
+		for (Obstacle obstacle: obstacles) {
+			distance = obstacle.x - DinoCreation.getSpawnX();
+			if (distance > 0) {
+				closestObstacle = obstacle;
+				break;
+			}
+		}
+		return new ObstacleInfo(distance, closestObstacle);
 	}
 }
 
