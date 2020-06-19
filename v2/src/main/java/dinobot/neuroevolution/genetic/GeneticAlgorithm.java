@@ -57,6 +57,13 @@ public class GeneticAlgorithm {
 	}
 	
 	public int getBestScore() {
+		int best = 0;
+		for (Genotype genome: this.population.genomes) {
+			if (genome.dino.score > best) {
+				best = genome.dino.score;
+			}
+		}
+		return best;
 	}
 	
 	public boolean populationDead() {
