@@ -53,6 +53,7 @@ public class GeneticAlgorithm {
 	}
 	
 	public Dino getBestGenome() {
+		return this.bestGenome;
 	}
 	
 	public int getBestScore() {
