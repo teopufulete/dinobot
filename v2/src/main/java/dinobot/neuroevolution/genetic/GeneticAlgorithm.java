@@ -5,7 +5,14 @@ import game.model.Dino;
 import game.model.Obstacle;
 
 public class GeneticAlgorithm {
-  public class ObstacleInfo {    
+  	public class ObstacleInfo {
+	  	public float distance;
+		public Obstacle closestObstacle;
+		
+		public ObstacleInfo(float distance, Obstacle closestObstacle) {
+			this.distance = distance;
+			this.closestObstacle =closestObstacle;
+		}
 	}
 	
 	public GeneticAlgorithm() {
