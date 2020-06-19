@@ -5,6 +5,7 @@ import game.model.Dino;
 import game.model.Obstacle;
 
 public class GeneticAlgorithm {
+	
   	public class ObstacleInfo {
 	  	public float distance;
 		public Obstacle closestObstacle;
@@ -29,9 +30,19 @@ public class GeneticAlgorithm {
 	private Dino bestGenome;
 	
 	public GeneticAlgorithm() {
+		this.population = new Population(this.populationSize);
+		this.bestGenome = this.population.genomes.get(0).dino;
+		this.alive = this.populationSize;
+		this.generation = 1;
 	}
 	
 	public void updatePopulation(List<Obstacle> obstacles) {
+		for (Genotype genome: this.population.genomes) {
+			if (!genome.dino.isDead) {
+				genome.dino.feed(data.closestObstacle, data.distance);
+				genome.dino.update();
+			}
+		}
 	}
 	
 	public void evolvePopulation() {
