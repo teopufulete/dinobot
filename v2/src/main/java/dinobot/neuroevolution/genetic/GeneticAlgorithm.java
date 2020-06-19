@@ -46,6 +46,10 @@ public class GeneticAlgorithm {
 	}
 	
 	public void evolvePopulation() {
+		his.alive = this.populationSize;
+		this.generation++;
+		this.population.evolve(this.elitism, this.randomness, this.mutationRate, this.mutationStdDev, this.childCount);
+		this.bestGenome =  this.population.genomes.get(0).dino;
 	}
 	
 	public Dino getBestGenome() {
