@@ -67,6 +67,12 @@ public class GeneticAlgorithm {
 	}
 	
 	public boolean populationDead() {
+		for (Genotype genome: this.population.genomes) {
+			if (!genome.dino.isDead) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	private ObstacleInfo getClosestObstacle(List<Obstacle> obstacles) {
