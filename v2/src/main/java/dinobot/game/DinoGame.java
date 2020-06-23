@@ -123,4 +123,14 @@ public class DinoGame extends PApplet{
 		score = 0;
 		this.spawnRate = 140;
 	}
+
+	
+	private void checkCollision(Obstacle obstacle, Dino dino) {
+		if (!dino.isDead) {
+			if (obstacle.checkCollisionwDino(dino)) {
+				dino.isDead = true;
+				this.agent.alive--;
+			}
+		}
+	}
 }
