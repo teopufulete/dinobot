@@ -43,4 +43,15 @@ public class DinoGame extends PApplet{
 	PImage cactusMediumImage;
 	PImage cactusSmallImage;
 	PImage groundImage;
+	
+	
+	public void settings() {
+		size(1366, 768);
+		Screen.setDimensions(width, height);
+		this.groundLevel = height - 100;
+		this.obstacles = new LinkedList<Obstacle>();
+		DinoCreation.init(100, this.groundLevel);
+		ObstacleCreation.init(0.3f, width, this.groundLevel);
+		this.agent = new GeneticAlgorithm();
+	}
 }
