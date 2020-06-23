@@ -102,4 +102,16 @@ public class DinoGame extends PApplet{
 			}
 		}
 	}
+
+	
+	public void keyPressed() {
+		if (key == CODED) {
+			if (keyCode == UP) {
+				speed = min(maxSpeed, ++speed);
+			} 
+			else if (keyCode == DOWN) {
+				speed = max(1, --speed);
+			}
+		}
+	}
 }
