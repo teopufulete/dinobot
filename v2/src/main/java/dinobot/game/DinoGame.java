@@ -54,4 +54,20 @@ public class DinoGame extends PApplet{
 		ObstacleCreation.init(0.3f, width, this.groundLevel);
 		this.agent = new GeneticAlgorithm();
 	}
+	
+	
+	public void setup() {
+		clearScreen();
+		surface.setTitle("Neuroevolution Chrome Dino");
+		cactusLargeImage = loadImage("sprites/cactusLarge.png");
+		cactusMediumImage = loadImage("sprites/cactusMedium.png");
+		cactusSmallImage = loadImage("sprites/cactusSmall.png");
+		birdImage = loadImage("sprites/enemy1.png");
+		groundImage = loadImage("sprites/ground.png");
+		birdSecondImage = loadImage("sprites/enemy2.png");
+		dinoRun1Image = loadImage("sprites/dinoRun1.png");
+		dinoRun2Image = loadImage("sprites/dinoRun2.png");
+		dinoJumpImage = loadImage("sprites/dinoJump.png");
+		dinoDuckImage = loadImage("sprites/dinoDuck.png");
+	}
 }
