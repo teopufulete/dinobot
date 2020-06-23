@@ -114,4 +114,13 @@ public class DinoGame extends PApplet{
 			}
 		}
 	}
+	
+	
+	private void reset() {
+		obstacles.clear();
+		tickCount = 0;
+		agent.evolvePopulation();
+		score = 0;
+		this.spawnRate = 140;
+	}
 }
