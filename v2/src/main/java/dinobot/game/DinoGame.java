@@ -70,4 +70,36 @@ public class DinoGame extends PApplet{
 		dinoJumpImage = loadImage("sprites/dinoJump.png");
 		dinoDuckImage = loadImage("sprites/dinoDuck.png");
 	}
+
+	
+	public void draw() {
+		for (int i = 0; i < speed; i++) {
+			this.tickCount++;
+			this.clearScreen();
+			this.drawGenerationInfo();
+			this.renderGround();
+			this.obstacles.forEach(obstacle -> this.renderObstacle(obstacle));
+			this.agent.population.genomes.forEach(genome -> this.renderDino(genome.dino));
+			this.renderNeuralNetwork(this.agent.getBestGenome().cactusNN, 850);
+			this.renderNeuralNetwork(this.agent.getBestGenome().birdNN, 1100);
+			this.obstacles.removeIf(obstacle -> obstacle.isInvisible());
+			for (Genotype genome: this.agent.population.genomes) {
+				for (Obstacle obstacle: this.obstacles) {
+					this.checkCollision(obstacle, genome.dino);
+				}
+			}
+			if (tickCount % spawnRate == 0) {
+				this.spawnObstacle();
+			}
+			
+			if (tickCount % speedupRate == 0) {
+				Obstacle.speedUp();
+			}
+			this.obstacles.forEach(obstacle -> obstacle.update());
+			this.agent.updatePopulation(obstacles);
+			if (this.agent.populationDead()) {
+				this.reset();
+			}
+		}
+	}
 }
