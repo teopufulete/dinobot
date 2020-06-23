@@ -17,3 +17,30 @@ import neuroevolution.neuralnetwork.Neuron;
 import processing.core.PApplet;
 import processing.core.PImage;
 import util.Screen;
+
+public class DinoGame extends PApplet{
+	List<Obstacle> obstacles;
+	GeneticAlgorithm agent;
+	
+	int groundLevel;
+	int tickCount = 0;
+	int spawnRate = 140;
+	int minSpawnRate = 80;
+	int speedupRate = 1000;
+	
+	int score = 0;
+	int highscore = 0;
+	int speed = 1;
+	int maxSpeed = 10;
+	
+	PImage dinoRun1Image;
+	PImage dinoRun2Image;
+	PImage dinoDuckImage;
+	PImage dinoJumpImage;
+	PImage cactusLargeImage;
+	PImage birdImage;
+	PImage birdSecondImage;
+	PImage cactusMediumImage;
+	PImage cactusSmallImage;
+	PImage groundImage;
+}
