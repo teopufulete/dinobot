@@ -138,4 +138,16 @@ public class DinoGame extends PApplet{
 	private void spawnObstacle() {
 		this.obstacles.add(ObstacleCreation.getObstacle());
 	}
+	
+	
+	private void renderDino(Dino dino) {
+		if (!dino.isDead) {
+			if (agent.alive > 1) {
+				stroke(0);
+				strokeWeight(1);
+				fill(125, 125, 125, 50);
+				rect(dino.x, dino.y-dino.height, dino.width, dino.height);
+			} 
+		}
+	}
 }
