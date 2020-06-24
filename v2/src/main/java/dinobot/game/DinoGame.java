@@ -170,4 +170,24 @@ public class DinoGame extends PApplet{
 			this.renderObstacle((CactusObstacle) obstacle);
 		}
 	}
+	
+	
+	private void renderObstacle(BirdObstacle obstacle) {
+		if (obstacle.state == 0) {
+			image(birdImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
+		} else {
+			image(birdSecondImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
+		}
+	}
+	
+	
+	private void renderObstacle(CactusObstacle obstacle) {
+		if (obstacle.cactusType == CactusType.LARGE) {
+			image(cactusLargeImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
+		} else if (obstacle.cactusType == CactusType.MEDIUM) {
+			image(cactusMediumImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
+		} else {
+			image(cactusSmallImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
+		}
+	}
 }
