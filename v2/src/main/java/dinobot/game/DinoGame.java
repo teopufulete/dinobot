@@ -161,4 +161,13 @@ public class DinoGame extends PApplet{
 			}
 		}
 	}
+	
+	
+	private void renderObstacle(Obstacle obstacle) {
+		if (obstacle.type == ObstacleType.BIRD) {
+			this.renderObstacle((BirdObstacle) obstacle);
+		} else {
+			this.renderObstacle((CactusObstacle) obstacle);
+		}
+	}
 }
