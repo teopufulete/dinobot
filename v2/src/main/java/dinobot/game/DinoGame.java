@@ -147,7 +147,18 @@ public class DinoGame extends PApplet{
 				strokeWeight(1);
 				fill(125, 125, 125, 50);
 				rect(dino.x, dino.y-dino.height, dino.width, dino.height);
-			} 
+			}
+			else {
+				if (dino.isDucking) {
+					image(dinoDuckImage, dino.x, dino.y-dino.height, dino.width, dino.height);
+				} else if (dino.y < this.groundLevel) {
+					image(dinoJumpImage, dino.x, dino.y-dino.height, dino.width, dino.height);
+				} else if (dino.state == 0) {
+					image(dinoRun1Image, dino.x, dino.y-dino.height, dino.width, dino.height);
+				} else {
+					image(dinoRun2Image, dino.x, dino.y-dino.height, dino.width, dino.height);
+				}
+			}
 		}
 	}
 }
