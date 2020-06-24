@@ -133,4 +133,9 @@ public class DinoGame extends PApplet{
 			}
 		}
 	}
+	
+	
+	private void spawnObstacle() {
+		this.obstacles.add(ObstacleCreation.getObstacle());
+	}
 }
