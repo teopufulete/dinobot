@@ -265,4 +265,8 @@ public class DinoGame extends PApplet{
 		image(groundImage, 0, this.groundLevel-10, width, 20);
 	}
 	
+	
+	private void clearScreen() {
+		background(255);
+	}	
 }
