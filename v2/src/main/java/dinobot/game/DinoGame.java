@@ -219,9 +219,8 @@ public class DinoGame extends PApplet{
 		int neuronSpace = 10;
 		int layerWidth = 15;
 		ellipseMode(CENTER);
-	}
-	
-	for (int i = 1; i < net.layers.size(); i++) {
+		
+		for (int i = 1; i < net.layers.size(); i++) {
 			Layer prevLayer = net.layers.get(i - 1);
 			Layer layer = net.layers.get(i);
 			int totalLayerHeight = layer.neurons.size() * layerWidth + (layer.neurons.size() - 1) * neuronSpace;
@@ -231,5 +230,27 @@ public class DinoGame extends PApplet{
 		
 			// Draw current layer
 			for (int j = 0; j < layer.neurons.size(); j++) {
+				
+				// Draw weights for each neuron
+				Neuron neuron = layer.neurons.get(j);
+				for (int k = 0; k < neuron.getWeights().size(); k++) {
+					float weight = neuron.getWeights().get(k);
+					strokeWeight(2 * Math.abs(weight));
+					if (weight >= 0) {
+						stroke(0, 0, 255);
+					} 
+					else {
+						stroke(255, 0, 0);
+					}
+					line(beginx + (i-1) * (layerWidth+layerSpace), prevLayerBegin + k * (layerWidth + neuronSpace), beginx + i * (layerWidth+layerSpace), layerBegin + j * (neuronSpace + layerWidth));
+				}
+				fill(255);
+				strokeWeight(1);
+				stroke(0);
+				ellipse(beginx + i * (layerWidth+layerSpace), layerBegin + j * (neuronSpace + layerWidth), layerWidth, layerWidth);
+			}
+	}
+	
+	
 	
 }
