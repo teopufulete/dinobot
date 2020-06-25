@@ -151,11 +151,14 @@ public class DinoGame extends PApplet{
 			else {
 				if (dino.isDucking) {
 					image(dinoDuckImage, dino.x, dino.y-dino.height, dino.width, dino.height);
-				} else if (dino.y < this.groundLevel) {
+				} 
+				else if (dino.y < this.groundLevel) {
 					image(dinoJumpImage, dino.x, dino.y-dino.height, dino.width, dino.height);
-				} else if (dino.state == 0) {
+				} 
+				else if (dino.state == 0) {
 					image(dinoRun1Image, dino.x, dino.y-dino.height, dino.width, dino.height);
-				} else {
+				} 
+				else {
 					image(dinoRun2Image, dino.x, dino.y-dino.height, dino.width, dino.height);
 				}
 			}
@@ -166,7 +169,8 @@ public class DinoGame extends PApplet{
 	private void renderObstacle(Obstacle obstacle) {
 		if (obstacle.type == ObstacleType.BIRD) {
 			this.renderObstacle((BirdObstacle) obstacle);
-		} else {
+		} 
+		else {
 			this.renderObstacle((CactusObstacle) obstacle);
 		}
 	}
@@ -175,7 +179,8 @@ public class DinoGame extends PApplet{
 	private void renderObstacle(BirdObstacle obstacle) {
 		if (obstacle.state == 0) {
 			image(birdImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
-		} else {
+		} 
+		else {
 			image(birdSecondImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
 		}
 	}
@@ -184,9 +189,11 @@ public class DinoGame extends PApplet{
 	private void renderObstacle(CactusObstacle obstacle) {
 		if (obstacle.cactusType == CactusType.LARGE) {
 			image(cactusLargeImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
-		} else if (obstacle.cactusType == CactusType.MEDIUM) {
+		} 
+		else if (obstacle.cactusType == CactusType.MEDIUM) {
 			image(cactusMediumImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
-		} else {
+		} 
+		else {
 			image(cactusSmallImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
 		}
 	}
@@ -213,4 +220,13 @@ public class DinoGame extends PApplet{
 		int layerWidth = 15;
 		ellipseMode(CENTER);
 	}
+	
+	for (int i = 1; i < net.layers.size(); i++) {
+			Layer prevLayer = net.layers.get(i - 1);
+			Layer layer = net.layers.get(i);
+			int totalLayerHeight = layer.neurons.size() * layerWidth + (layer.neurons.size() - 1) * neuronSpace;
+			int layerBegin = beginy + (yspan - totalLayerHeight) / 2;
+			int totalPrevLayerHeight = prevLayer.neurons.size() * layerWidth + (prevLayer.neurons.size() - 1) * neuronSpace;
+			int prevLayerBegin = beginy + (yspan - totalPrevLayerHeight) / 2;
+	
 }
