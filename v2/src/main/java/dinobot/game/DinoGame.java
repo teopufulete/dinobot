@@ -261,5 +261,8 @@ public class DinoGame extends PApplet{
 	}
 	
 	
+	private void renderGround() {
+		image(groundImage, 0, this.groundLevel-10, width, 20);
+	}
 	
 }
