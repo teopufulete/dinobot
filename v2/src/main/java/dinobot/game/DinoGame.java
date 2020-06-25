@@ -228,5 +228,8 @@ public class DinoGame extends PApplet{
 			int layerBegin = beginy + (yspan - totalLayerHeight) / 2;
 			int totalPrevLayerHeight = prevLayer.neurons.size() * layerWidth + (prevLayer.neurons.size() - 1) * neuronSpace;
 			int prevLayerBegin = beginy + (yspan - totalPrevLayerHeight) / 2;
+		
+			// Draw current layer
+			for (int j = 0; j < layer.neurons.size(); j++) {
 	
 }
