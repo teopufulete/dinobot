@@ -249,6 +249,15 @@ public class DinoGame extends PApplet{
 				stroke(0);
 				ellipse(beginx + i * (layerWidth+layerSpace), layerBegin + j * (neuronSpace + layerWidth), layerWidth, layerWidth);
 			}
+			
+			//Draw previous layer
+			for (int j = 0; j < prevLayer.neurons.size(); j++) {
+				fill(255);
+				strokeWeight(1);
+				stroke(0);
+				ellipse(beginx + (i-1) * (layerWidth+layerSpace), prevLayerBegin + j * (neuronSpace + layerWidth), layerWidth, layerWidth);
+			}
+		}
 	}
 	
 	
