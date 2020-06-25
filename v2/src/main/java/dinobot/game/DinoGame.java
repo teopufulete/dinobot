@@ -203,4 +203,14 @@ public class DinoGame extends PApplet{
 		text("Highscore: " + highscore, 20, 140);
 		text("Speed: " + speed + "x", 20, 170);
 	}
+	
+	
+	private void renderNeuralNetwork(NeuralNetwork net, float beginx) {
+		int beginy = 0;
+		int yspan = 300;
+		int layerSpace = 80;
+		int neuronSpace = 10;
+		int layerWidth = 15;
+		ellipseMode(CENTER);
+	}
 }
