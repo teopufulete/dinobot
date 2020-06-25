@@ -190,4 +190,17 @@ public class DinoGame extends PApplet{
 			image(cactusSmallImage, obstacle.x, obstacle.y - obstacle.height, obstacle.width, obstacle.height);
 		}
 	}
+	
+	
+	private void drawGenerationInfo() {
+		score = this.agent.getBestScore();
+		highscore = Math.max(score, highscore);
+		textSize(22);
+		fill(0);
+		text("Score: " + score, 20, 50);
+		text("Generation: " + agent.generation, 20, 80);
+		text("Alive: " + agent.alive + " / " + agent.populationSize, 20, 110);
+		text("Highscore: " + highscore, 20, 140);
+		text("Speed: " + speed + "x", 20, 170);
+	}
 }
